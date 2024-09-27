@@ -4,12 +4,14 @@ import reactLogo from './assets/react.svg'
 
 import viteLogo from '../public/vite.svg'
 import './App.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -26,7 +28,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </QueryClientProvider>
   )
 }
 
