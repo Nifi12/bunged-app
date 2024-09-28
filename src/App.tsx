@@ -1,35 +1,23 @@
-import { useState } from 'react'
+import { useCountStore } from './store'
 
-import reactLogo from './assets/react.svg'
-
-import viteLogo from '../public/vite.svg'
 import './App.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-const queryClient = new QueryClient()
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const count = useCountStore((state) => state.count)
+  const increment = useCountStore((state) => state.increment)
+  const decrement = useCountStore((state) => state.decrement)
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+    <div>
       <h1 className="text-3xl font-bold underline">Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((prevValue) => prevValue + 1)}>count is {count}</button>
+        <button onClick={() => increment()}>count is {count}</button>
+        <button onClick={() => decrement()}>decrement count is {count}</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </QueryClientProvider>
+    </div>
   )
 }
-
-export default App

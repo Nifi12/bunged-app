@@ -33,8 +33,9 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "react-hooks", "react-refresh", "@tanstack/query"],
+  "plugins": ["react", "react-hooks", "react-refresh", "@tanstack/query", "@stylistic/ts"],
   "rules": {
+    "@stylistic/ts/semi": ["off"],
     "react-refresh/only-export-components": [
       "warn",
       {
