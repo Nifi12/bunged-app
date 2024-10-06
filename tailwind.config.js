@@ -10,6 +10,10 @@ export default {
         bgBlueCard: {
           100: '#81B2CA',
         },
+        borderGrey: {
+          100: '#818181',
+        },
+
       },
     },
   },
